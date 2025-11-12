@@ -10,8 +10,6 @@ import Feed from './Component/Feed'
 import Contact from './Component/Contact'
 import Footer from './Component/Footer'
 
-
-
 const App = () => {
   return (
     <div>
