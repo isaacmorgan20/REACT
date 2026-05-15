@@ -27,12 +27,13 @@ const Login = () => {
     
     
   return (
-    <div>
-        <form onSubmit={handleLogin}>
-            <input type="email" placeholder='email' value={email} onChange={(e) => setEmail(e.target.value)}/>
-            <input type="password" placeholder='password' value={password} onChange={(e) => setPassword(e.target.value)}/>
-
-            <button className='bg-blue-700 p-2 rounded-lg text-white'>Login</button>
+    <div className='w-130 h-60  rounded-lg p-10 ml-100'>
+         <form onSubmit={handleLogin}>
+            <input type="email" placeholder='email' value={email} onChange={(e) => setEmail(e.target.value)} className='w-full p-2 rounded-lg border-1'/>
+            <br/><br />
+            <input type="password" placeholder='password' value={password} onChange={(e) => setPassword(e.target.value)} className='w-full p-2 rounded-lg border-1'/>
+             <br /><br />
+            <button className='bg-blue-700 p-2 rounded-lg text-white w-full '>Login</button>
         </form>
     </div>
   )

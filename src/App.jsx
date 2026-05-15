@@ -12,7 +12,7 @@ import { useState } from "react";
 
 const App = () => {
 
-   const user = useAuthStore((state) => state.user)
+  const user = useAuthStore((state) => state.user)
   const profile = useAuthStore((state) => state.profile)
   const loading = useAuthStore((state) => state.loading)
   const listenToAuth = useAuthStore((state) => state.listenToAuth)
@@ -29,37 +29,39 @@ const App = () => {
 
   // ❌ REMOVED (WEEK 1 – BEFORE ZUSTAND):
   // The state below used to live here:
-  
+
 
   return (
-    <div style={appStyle}>
-      <h1 style={{ textAlign: "center" }}>Student Register</h1>
+    <div className=" p-5">
+      <h1 style={{ textAlign: "center" }} className="text-2xl">Student Register</h1>
+      <br />
 
-         {!user ? (
+      {!user ? (
         <>
           {showLogin ? <Login /> : <Registration />}
 
-          <p>{showLogin ? "No Account?" : "Already have an account?"}{" "}
-            <button onClick={() => setShowLogin(!showLogin)}>
-              {showLogin ? "Register" : "Login"}
-            </button>
+          <p className="text-center "><br /><br /><br /><br />{showLogin ? "No Account?" : "Already have an account?"}{" "}
+            <button onClick={() => setShowLogin(!showLogin)}><br />{showLogin ? "Register" : "Login"}</button>
           </p>
         </>
       ) : (
         <>
-          <p>
+          <p className="text-center">
             Logged in as: <strong>{profile?.name || user.email}</strong>
             {profile?.course ? `-${profile.course}` : ""}
+            <br /><br />
+            <button onClick={logout} style={logOutStlye} >Logout</button>
           </p>
-          <button onClick={logout} style={logOutStlye}>Logout</button>
 
-      {/* 🔁 CHANGED:
+          {/* 🔁 CHANGED:
           We are no longer passing props like setStudents or students.
           Each component now accesses the global store directly.
       */}
-      <Forms style={{marginTop: "10px"}}/>
-      <List />
- </>
+          <div className="flex justify-center space-x-5 pt-5" >
+            <Forms style={{ marginTop: "10px" }} />
+            <List />
+          </div>
+        </>
       )}
     </div>
   );
@@ -68,13 +70,6 @@ const App = () => {
 export default App;
 
 // 🎨 STYLING ONLY (NO STATE OR LOGIC CHANGES)
-const appStyle = {
-  maxWidth: "400px",
-  margin: "40px auto",
-  padding: "20px",
-  backgroundColor: "#f9f9f9",
-  borderRadius: "10px",
-};
 
 const logOutStlye = {
   backgroundColor: "red",

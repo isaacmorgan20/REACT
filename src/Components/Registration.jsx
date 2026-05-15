@@ -28,14 +28,17 @@ const Registration = () => {
         }
     }
   return (
-    <div>
+    <div className='w-130 h-60  rounded-lg p-10 ml-100'>
         <form onSubmit={handleRegister}>
-           <input type="text"  value={name} onChange={(e) => setName(e.target.value)} placeholder='name'/>
-           <input type="text"  value={course} onChange={(e) => setCourse(e.target.value)} placeholder='course'/>
-           <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder='email'/>
-           <input type="password"  value={password} onChange={(e) => setPassword(e.target.value)} placeholder='password'/>
-
-           <button>Create Account</button>
+           <input type="text"  value={name} onChange={(e) => setName(e.target.value)} placeholder='name' className='w-full p-2 rounded-lg border-1'/>
+           <br /><br />
+           <input type="text"  value={course} onChange={(e) => setCourse(e.target.value)} placeholder='course' className='w-full p-2 rounded-lg border-1'/>
+           <br /><br />
+           <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder='email' className='w-full p-2 rounded-lg border-1'/>
+           <br /><br />
+           <input type="password"  value={password} onChange={(e) => setPassword(e.target.value)} placeholder='password' className='w-full p-2 rounded-lg border-1'/>
+           <br /><br />
+           <button className='bg-blue-700 p-2 rounded-lg text-white w-full '>Create Account</button>
         </form>
     </div>
   )
