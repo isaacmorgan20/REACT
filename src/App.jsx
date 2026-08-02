@@ -1,26 +1,35 @@
 import React from 'react'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { CartProvider } from './context/CartContext'
+import { WishlistProvider } from './context/WishlistContext'
+import { ToastProvider } from './component/Toast'
 import Header from './component/Header'
-import Hero from './component/Hero'
 import Title from './component/Title'
-import Men from './component/Men'
-import Women from './component/women'
-import Product from './component/Product'
 import Footer from './component/Footer'
-import HomeP2 from './component/HomeP2'
-
+import HomePage from './pages/HomePage'
+import ShopPage from './pages/ShopPage'
+import CartPage from './pages/CartPage'
+import WishlistPage from './pages/WishlistPage'
 
 const App = () => {
   return (
-   <>
-   <Header />
-   <Hero />
-   <Title />
-   <Men />
-  <Women />
-  <Product />
-  <Footer />
-  <HomeP2 />
-   </>
+    <Router>
+      <CartProvider>
+        <WishlistProvider>
+          <ToastProvider>
+            <Header />
+            <Title />
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/shop" element={<ShopPage />} />
+              <Route path="/cart" element={<CartPage />} />
+              <Route path="/wishlist" element={<WishlistPage />} />
+            </Routes>
+            <Footer />
+          </ToastProvider>
+        </WishlistProvider>
+      </CartProvider>
+    </Router>
   )
 }
 

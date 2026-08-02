@@ -1,8 +1,13 @@
 import React from 'react'
-
-
+import { useNavigate } from 'react-router-dom'
 
 const Men = () => {
+  const navigate = useNavigate();
+
+  const handleShopNow = () => {
+    navigate('/shop?category=men');
+  };
+
   return (
     <>
     {/* <!-- men collection --> */}
@@ -12,8 +17,13 @@ const Men = () => {
             <p className="lg:font-bold md:font-bold lg:text-3xl md:text-3xl">MEN COLLECTION 2028</p>
             <p className="lg:font-bold md:font-bold lg:text-5xl md:text-5xl text-4xl font-bold">NEW ARRIVALS</p>
             {/* <!-- button --> */}
-            <div class="pt-15 lg:pb-44 md:pb-89 pb-70">
-                <button className="bg-blue-700 px-10 p-3 rounded-full text-white hover:bg-black duration-300">SHOP NOW</button>
+            <div className="pt-15 lg:pb-44 md:pb-89 pb-70">
+                <button
+                  onClick={handleShopNow}
+                  className="bg-blue-700 px-10 p-3 rounded-full text-white hover:bg-black duration-300 cursor-pointer"
+                >
+                  SHOP NOW
+                </button>
             </div>
         </div>
       </section>
